@@ -49,8 +49,8 @@ namespace CRUSUI
                     case MenuType.ShowClothes:
                         page = new ShowClothes(new ClothingBL(new Repository()));
                         break;
-                    case MenuType.AddClothing:
-                        page = new AddClothing(new ClothingBL(new Repository()));
+                    case MenuType.AddCustomer:
+                        page = new AddCustomer(new CustomerBL(new Repository()));
                         break;
                     case MenuType.CurrentClothing:
                         page = new CurrentClothing(new ClothingBL(new Repository()));

@@ -4,27 +4,27 @@ using CRUSModels;
 
 namespace CRUSUI
 {
-    public class AddClothing : IMenu
+    public class AddCustomer : IMenu
     {
-        private static Clothing _rest = new Clothing();
-        private IClothingBL _restBL;
-         
-        public AddClothing(IClothingBL p_restBL)
+        private static Customer _cust = new Customer();
+        private ICustomerBL _custBL;
+
+        public AddCustomer(ICustomerBL p_custBL)
         {
-            _restBL = p_restBL;
+            _custBL = p_custBL;
         }
 
         public void Menu()
         {
-            
-            Console.WriteLine("Name - " + _rest.Name);
-            Console.WriteLine("State - "+ _rest.State);
-            Console.WriteLine("City - "+ _rest.City);
-            Console.WriteLine("Adding a new Clothing Store");
-            Console.WriteLine("[4] - Add Clothing Store");
+
+            Console.WriteLine("Name - " + _cust.Name);
+            Console.WriteLine("Email - " + _cust.Email);
+            Console.WriteLine("Address - " + _cust.Address);
+            Console.WriteLine("Adding a new Customer Store");
+            Console.WriteLine("[4] - Add Customer Store");
             Console.WriteLine("[3] - Input value for Name");
-            Console.WriteLine("[2] - Input value for State");
-            Console.WriteLine("[1] - Input value for City");
+            Console.WriteLine("[2] - Input value for Email");
+            Console.WriteLine("[1] - Input value for Address");
             Console.WriteLine("[0] - Go Back");
         }
 
@@ -38,36 +38,36 @@ namespace CRUSUI
                     //Laymen's term if a problem has happened while doing this code, it will instead do the catch block
                     try
                     {
-                         _restBL.AddClothing(_rest);
+                        _custBL.AddCustomer(_cust);
                     }
                     catch (System.Exception)
                     {
                         Console.WriteLine("You must input value to all fields above");
                         Console.WriteLine("Press Enter to continue");
                         Console.ReadLine();
-                        return MenuType.AddClothing;
+                        return MenuType.AddCustomer;
                     }
-                    
-                    return MenuType.ClothesMenu;
+
+                    return MenuType.MainMenu;
                 case "3":
                     Console.WriteLine("Type in the value for the Name");
-                    _rest.Name = Console.ReadLine();
-                    return MenuType.AddClothing;
+                    _cust.Name = Console.ReadLine();
+                    return MenuType.AddCustomer;
                 case "2":
-                    Console.WriteLine("Type in the value for the State");
-                    _rest.State = Console.ReadLine();
-                    return MenuType.AddClothing;
+                    Console.WriteLine("Type in the value for the Email");
+                    _cust.Email = Console.ReadLine();
+                    return MenuType.AddCustomer;
                 case "1":
-                    Console.WriteLine("Type in the value for the City");
-                    _rest.City = Console.ReadLine();
-                    return MenuType.AddClothing;
+                    Console.WriteLine("Type in the value for the Address");
+                    _cust.Address = Console.ReadLine();
+                    return MenuType.AddCustomer;
                 case "0":
-                    return MenuType.ClothesMenu;
+                    return MenuType.MainMenu;
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.ShowClothes;
+                    return MenuType.AddCustomer;
             }
         }
     }

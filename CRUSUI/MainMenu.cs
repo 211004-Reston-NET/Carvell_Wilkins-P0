@@ -17,20 +17,19 @@ namespace CRUSUI
         {
             Console.WriteLine("Welcome to the Main Menu!");
             Console.WriteLine("Where would you like to go?");
+            Console.WriteLine("[2] - Create a new User");
             Console.WriteLine("[1] - Go to Clothes R' US");
             Console.WriteLine("[0] - Exit");
         }
 
-        public void ThisIsOnlyForMainMenuCFile()
-        {
-            throw new NotImplementedException();
-        }
-
+      
         public MenuType YourChoice()
         {
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
+                case "2":
+                    return MenuType.AddCustomer;                    
                 case "1":
                     return MenuType.ClothesMenu;
                 case "0":

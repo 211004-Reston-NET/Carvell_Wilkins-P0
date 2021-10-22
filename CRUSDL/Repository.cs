@@ -31,6 +31,15 @@ namespace CRUSDL
             return p_rest;
         }
 
+        public Customer AddCustomer(Customer p_customer)
+        {
+          List<Customer> listOfCustomer= GetAllCustomer();
+          listOfCustomer.Add(p_customer);
+          _jsonString = JsonSerializer.Serialize(listOfCustomer, new JsonSerializerOptions { WriteIndented = true});
+            File.WriteAllText(_filepath+ "Custotmer.json",_jsonString );
+            return p_customer;
+        
+        }
 
         public List<Clothing> GetAllClothing()
         {
@@ -66,11 +75,50 @@ namespace CRUSDL
             return JsonSerializer.Deserialize<List<Clothing>>(_jsonString);
         }
 
+        public List<Customer> GetAllCustomer()
+        {
+             try
+            {
+                 _jsonString = File.ReadAllText(_filepath+"Customer.json");
+            }
+            //This will catch a very specific exception and run the block
+            catch (System.IO.FileNotFoundException)
+            {
+                //Added Dummy data
+                Customer newCust = new Customer();
+                List<Customer> listOfCust = new List<Customer>();
+                listOfCust.Add(newCust);
+
+                //Added a file to database folder
+                File.WriteAllText(_filepath+"Customer.json", JsonSerializer.Serialize<List<Customer>>(listOfCust));
+
+                //Read that file I just added
+                _jsonString = File.ReadAllText(_filepath+"Customer.json");
+            }
+            //Generic SystemException will always catch any exception
+            catch(SystemException var)
+            {
+                throw var;
+            }
+
+            //Since we are converting from a string to an object that C# understands we need to deserialize the string to object.
+            //Json Serializer has a static method called Deserialize and thats why you don't need to instantiate it
+            //The parameter of the Deserialize method needs a string variable that holds the json file
+            return JsonSerializer.Deserialize<List<Customer>>(_jsonString);
+        }
+
         public List<Review> GetAllReview()
         {
             _jsonString = File.ReadAllText(_filepath+"Review.json");
 
             return JsonSerializer.Deserialize<List<Review>>(_jsonString);
-        }
+        } 
+        // public List<CRUSStoreFront> GetCRUSStoreFronts()
+        // {
+        //     _jsonString = File.ReadAllText(_filepath+"CRRUSStoreFront.json");
+
+        //     return JsonSerializer.Deserialize<List<CRUSStoreFront>>(_jsonString);
+        // }
     }
+
 }

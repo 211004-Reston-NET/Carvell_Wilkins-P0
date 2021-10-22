@@ -8,8 +8,9 @@ namespace CRUSUI
         MainMenu,
         ClothesMenu,
         ShowClothes,
-        AddClothing,
+        AddCustomer,
         CurrentClothing,
+        CRUSStoreFront,
         Exit
     }
 
