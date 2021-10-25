@@ -4,15 +4,15 @@ using CRUSModels;
 
 namespace CRUSUI
 {
-    public class CRUSStoreFront : IMenu
+    public class StoreFrontMenu : IMenu
     {
-        private static Clothing _Cloth = new Clothing();
-        private IClothingBL _ClothBL;
+       
+        // private IStoreFrontBL _StoreBL;
          
-        public CRUSStoreFront(IClothingBL p_ClothBL)
-        {
-            _ClothBL = p_ClothBL;
-        }
+        // public StoreFrontMenu(IStoreFrontBL p_StoreBL)
+        // {
+        //     _StoreBL = p_StoreBL;
+        // }
 
         public void Menu()
         {
@@ -30,7 +30,6 @@ namespace CRUSUI
             Console.WriteLine("[4] - San Antonio, TX");
             Console.WriteLine("[3] - San Diego, CA");
             Console.WriteLine("[2] - Dallas, TX");
-            Console.WriteLine("[1] - Add store locaton");
             Console.WriteLine("[0] - Go Back");
 
         }
@@ -40,71 +39,56 @@ namespace CRUSUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-                case "1":
-                    //Anything inside the try block will be catched if an exception has risen
-                    //Laymen's term if a problem has happened while doing this code, it will instead do the catch block
-                    try
-                    {
-                         _ClothBL.CRUSStoreFront(_Cloth);
-                    }
-                    catch (System.Exception)
-                    {
-                        Console.WriteLine("You must input the correct value for the field above");
-                        Console.WriteLine("Press Enter to continue");
-                        Console.ReadLine();
-                        return MenuType.CRUSStoreFront;
-                    }
-                    
-                    return MenuType.CRUSStoreFront;
+               
                 case "0":
-                    Console.WriteLine("Please press enter to return to store front");
-                    _Cloth.Name = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    Console.WriteLine("Exiting back to the Main Menu. Press enter to continue.");
+                    Console.ReadLine();
+                    return MenuType.MainMenu;
                 case "2":
                     Console.WriteLine("You have chosen Dallas, Tx. Please press enter to continue");
-                    _Cloth.State = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    SingletonStoreFront.storeFront.Name= "Dallas TX";
+                    return MenuType.LineItem;
                 case "3":
                     Console.WriteLine("You have chosen San Diego, CA. Please press enter to continue");
-                    _Cloth.City = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    SingletonStoreFront.storeFront.Name= "San Diego CA";
+                    return MenuType.LineItem;
                 case "4":
                      Console.WriteLine("You have chosen San Antonio, TX. Please press enter to continue");
-                    _Cloth.City = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    SingletonStoreFront.storeFront.Name = "San Antonio TX";
+                    return MenuType.LineItem;
                 
                 case "5":
                     Console.WriteLine("You have chosen Philadelphia, PA. Please press enter to continue");
-                    _Cloth.Name = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    SingletonStoreFront.storeFront.Name = "Philadelphia PA";
+                    return MenuType.LineItem;
                 case "6":
                     Console.WriteLine("You have chosen Phonex, AZ. Please press enter to continue");
-                    _Cloth.State = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    SingletonStoreFront.storeFront.Name = "Phonex AZ";
+                    return MenuType.LineItem;
                 case "7":
                     Console.WriteLine("You have chosen Houston, TX. Please press enter to continue");
-                    _Cloth.City = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    SingletonStoreFront.storeFront.Name = "Houston TX";
+                    return MenuType.LineItem;
 
                 case "8":
                     Console.WriteLine("You have chosen Chicago, IL. Please press enter to continue");
-                    _Cloth.City = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    SingletonStoreFront.storeFront.Name = "Chicago IL";
+                    return MenuType.LineItem;
                 
                 case "9":
                     Console.WriteLine("You have chosen Los Angeles, CA . Please press enter to continue");
-                    _Cloth.Name = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    SingletonStoreFront.storeFront.Name = "Los Angeles CA";
+                    return MenuType.LineItem;
                 case "10":
                     Console.WriteLine("You have chose New York, NY. Please press enter to continue");
-                    _Cloth.State = Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    SingletonStoreFront.storeFront.Name = "New York NY";
+                    return MenuType.LineItem;
                
                 default:
                     Console.WriteLine("Please input a valid response!");
                     Console.WriteLine("Press Enter to continue");
                     Console.ReadLine();
-                    return MenuType.CRUSStoreFront;
+                    return MenuType.StoreFront;
             }
         }
     }

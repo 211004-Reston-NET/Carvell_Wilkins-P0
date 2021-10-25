@@ -22,7 +22,7 @@ namespace CRUSUI
                 case "3":
                     return MenuType.ShowClothes;
                 case "2":
-                    return MenuType.AddClothing;
+                    return MenuType.AddCustomer;
                 case "1":
                     return MenuType.ClothesMenu;
                 case "0":

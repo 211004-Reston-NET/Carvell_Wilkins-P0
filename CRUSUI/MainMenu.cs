@@ -28,10 +28,11 @@ namespace CRUSUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
+
                 case "2":
                     return MenuType.AddCustomer;                    
                 case "1":
-                    return MenuType.ClothesMenu;
+                    return MenuType.StoreFront;
                 case "0":
                     return MenuType.Exit;
                 default:
