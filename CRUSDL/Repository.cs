@@ -107,12 +107,32 @@ namespace CRUSDL
             return JsonSerializer.Deserialize<List<Customer>>(_jsonString);
         }
 
+        public List<LineItems> GetAllLineItems(string p_locations)
+        {
+          switch (p_locations)
+          {
+              case "Dallas TX":
+              _jsonString = File.ReadAllText(_filepath+"LineItemDallasTX.json");
+              break;
+              
+              default:
+              break;
+          }
+
+            return JsonSerializer.Deserialize<List<LineItems>>(_jsonString); 
+        }
+
         public List<Review> GetAllReview()
         {
             _jsonString = File.ReadAllText(_filepath+"Review.json");
 
             return JsonSerializer.Deserialize<List<Review>>(_jsonString);
-        } 
+        }
+
+        public List<StoreFront> GetAllStoreFront()
+        {
+            throw new NotImplementedException();
+        }
         // public List<CRUSStoreFront> GetCRUSStoreFronts()
         // {
         //     _jsonString = File.ReadAllText(_filepath+"CRRUSStoreFront.json");

@@ -13,7 +13,7 @@ namespace CRUSDL
         Clothing AddClothing(Clothing p_rest);
 
 
-       //this will return a list of storefronts
+        //this will return a list of storefronts
         //List<CRUSStoreFront> GetCRUSStoreFronts();
 
         /// <summary>
@@ -35,6 +35,18 @@ namespace CRUSDL
         /// </summary>
         /// <param name="p_customer">The Paramater is the customre that will be added</param>
         /// <returns>Will return the customer that gets added</returns>
-        Customer AddCustomer(Customer p_customer); 
+        Customer AddCustomer(Customer p_customer);
+
+        /// <summary>
+        /// This is going to get all the line items for a specific store location
+        /// </summary>
+        /// <param name="p_locations"> This is the store location that will be searched</param>
+        /// <returns>we will return a list of line items</returns>
+        List<LineItems> GetAllLineItems(string p_locations);
+          /// <summary>
+        /// This is going to get all Store fronts.
+        /// </summary>
+        /// <returns>we will return a list of store fronts</returns>
+        List<StoreFront> GetAllStoreFront();
     }
 }
