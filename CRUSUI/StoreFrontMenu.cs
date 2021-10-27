@@ -21,12 +21,12 @@ namespace CRUSUI
             Console.WriteLine("store near you");
             Console.WriteLine("======================");
             Console.WriteLine("======================");
-            Console.WriteLine("[10] - New York, NY");
+            /*Console.WriteLine("[10] - New York, NY");
             Console.WriteLine("[9] - Los Angeles, CA");
             Console.WriteLine("[8] - Chicago, IL");
             Console.WriteLine("[7] - Houston, TX");
             Console.WriteLine("[6] - Phoenix, AZ");
-            Console.WriteLine("[5] - Philadelphia, PA");
+            Console.WriteLine("[5] - Philadelphia, PA");*/
             Console.WriteLine("[4] - San Antonio, TX");
             Console.WriteLine("[3] - San Diego, CA");
             Console.WriteLine("[2] - Dallas, TX");
@@ -57,7 +57,7 @@ namespace CRUSUI
                     SingletonStoreFront.storeFront.Name = "San Antonio TX";
                     return MenuType.LineItem;
                 
-                case "5":
+                /*case "5":
                     Console.WriteLine("You have chosen Philadelphia, PA. Please press enter to continue");
                     SingletonStoreFront.storeFront.Name = "Philadelphia PA";
                     return MenuType.LineItem;
@@ -82,7 +82,7 @@ namespace CRUSUI
                 case "10":
                     Console.WriteLine("You have chose New York, NY. Please press enter to continue");
                     SingletonStoreFront.storeFront.Name = "New York NY";
-                    return MenuType.LineItem;
+                    return MenuType.LineItem;*/
                
                 default:
                     Console.WriteLine("Please input a valid response!");

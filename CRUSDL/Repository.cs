@@ -115,6 +115,14 @@ namespace CRUSDL
               _jsonString = File.ReadAllText(_filepath+"LineItemDallasTX.json");
               break;
               
+              case "San Diego CA":
+              _jsonString = File.ReadAllText(_filepath+"LineItemSanDiegoCA.json");
+              break;
+
+              case "San Antonio TX":
+              _jsonString = File.ReadAllText(_filepath+"LineItemSanAntonioTX.json");
+              break;
+
               default:
               break;
           }

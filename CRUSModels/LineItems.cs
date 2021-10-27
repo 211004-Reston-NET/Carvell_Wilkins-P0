@@ -29,7 +29,7 @@ namespace CRUSModels
         }
         public override string ToString()
         {
-            return $"Brand: {Product.Brand} \nName: {Product.Name} \nPrice: {Product.Price} ";
+            return $"Brand: {Product.Brand} \nName: {Product.Name} \nPrice: {Product.Price} "; 
         }
     }
 }
