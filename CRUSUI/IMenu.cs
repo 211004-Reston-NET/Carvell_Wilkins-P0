@@ -14,8 +14,9 @@ namespace CRUSUI
         StoreFront,
         OrderPlacement,
         ShowCustomer, 
-        SearchCustomer,
-        ViewPastOrders, 
+        CustomerSearch,
+        ViewPastOrders,
+        CategoryMenu, 
         Inventory,
 
         Exit

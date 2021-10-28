@@ -27,5 +27,17 @@ namespace CRUSBL
         List<Customer> GetCustomer(string p_name);
 
         Order OrderPlacement(Customer p_customer, Order p_order);
+
+
+         /// <summary>
+        ///     Will check the database for a customer with a name, email, and address. 
+        ///     It will thenthen return the 1st customer if finds with that information.
+        /// </summary>
+        /// <param name="p_name"> customer name to search for </param>
+        /// <param name="p_email"> customer email to search for </param>
+        /// <param name="p_address"> customer address to search for </param>
+        /// <returns> returns the customer from the database</returns>
+        Customer GetSingleCustomer(string p_name, string p_email);
+
     }
 }

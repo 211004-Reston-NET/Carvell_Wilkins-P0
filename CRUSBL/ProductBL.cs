@@ -15,7 +15,7 @@ namespace CRUSBL
         public List<Products> SearchByCategory(string p_category)
         {
             List<Products> products = _repo.GetAllProducts();
-            return products.Where(prod => prod..ToLower().Contains(p_category.ToLower())).ToList();
+            return products.Where(prod => prod.catagory.ToLower().Contains(p_category.ToLower())).ToList();
         }
     }
 }

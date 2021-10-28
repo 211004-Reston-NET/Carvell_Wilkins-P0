@@ -1,7 +1,7 @@
 using System.Collections.Generic;
 using CRUSModels;
 
-namespace IProductBL
+namespace CRUSBL
 {
     public interface IProductBL
     {
