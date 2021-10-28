@@ -7,6 +7,7 @@ namespace CRUSModels
         private string _name;
         private decimal _price;
         private string _brand;
+        public int ItemId {get; set;}
 
         public string Name {
             get

@@ -130,6 +130,11 @@ namespace CRUSDL
             return JsonSerializer.Deserialize<List<LineItems>>(_jsonString); 
         }
 
+        public List<Products> GetAllProducts()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Review> GetAllReview()
         {
             _jsonString = File.ReadAllText(_filepath+"Review.json");
@@ -138,6 +143,16 @@ namespace CRUSDL
         }
 
         public List<StoreFront> GetAllStoreFront()
+        {
+            throw new NotImplementedException();
+        }
+
+        public Products GetProductsByItemId(int p_ItemId)
+        {
+            throw new NotImplementedException();
+        }
+
+        public Order PlaceOrder(Customer p_customer, Order p_order)
         {
             throw new NotImplementedException();
         }

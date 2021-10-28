@@ -12,6 +12,12 @@ namespace CRUSUI
         LineItem,
         CurrentClothing,
         StoreFront,
+        OrderPlacement,
+        ShowCustomer, 
+        SearchCustomer,
+        ViewPastOrders, 
+        Inventory,
+
         Exit
     }
 

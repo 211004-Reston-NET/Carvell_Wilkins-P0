@@ -58,5 +58,10 @@ namespace CRUSBL
             //ToLower will lowercase the string to make it not case sensitive
             return listOfCustomer.Where(rest => rest.Name.ToLower().Contains(p_name.ToLower())).ToList();
         }
+
+        public Order OrderPlacement(Customer p_customer, Order p_order)
+        {
+            throw new NotImplementedException();
+        }
     }
 }

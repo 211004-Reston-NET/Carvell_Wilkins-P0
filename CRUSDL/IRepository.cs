@@ -48,5 +48,14 @@ namespace CRUSDL
         /// </summary>
         /// <returns>we will return a list of store fronts</returns>
         List<StoreFront> GetAllStoreFront();
+
+        //this is going to get a list of products from the database
+
+        List<Products> GetAllProducts();
+
+        ///This will get us a list of orders that was selected by the customer
+        Order PlaceOrder (Customer p_customer, Order p_order);
+
+        Products GetProductsByItemId(int p_ItemId);
     }
 }
