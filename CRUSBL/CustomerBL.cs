@@ -13,7 +13,7 @@ namespace CRUSBL
     /// </summary>
     public class CustomerBL :ICustomerBL
     {
-        private Repository _repo;
+        private IRepository _repo;
         /// <summary>
         /// We are defining the dependencies this class needs to operate
         /// We do it this way because we can easily switch out which implementation details we will be using
@@ -21,19 +21,19 @@ namespace CRUSBL
         /// have the implementation
         /// </summary>
         /// <param name="p_repo">It will pass in a Respository object</param>
-        public CustomerBL(Repository p_repo)
+        public CustomerBL(IRepository p_repo)
         {
             _repo = p_repo;
         }
 
-        public Customer AddCustomer(Customer p_rest)
+        public Customer AddCustomer(Customer p_customer)
         {
-            if (p_rest.Name == null || p_rest.Email == null || p_rest.Address == null)
+            if (p_customer.Name == null || p_customer.Email == null || p_customer.Address == null)
             {
-                throw new Exception("You must have a value in all of the properties of the restaurant class");
+                throw new Exception("You must have a value in all of the properties of the customeraurant class");
             }
 
-            return _repo.AddCustomer(p_rest);
+            return _repo.AddCustomer(p_customer);
         }
 
         public List<Customer> GetAllCustomer()
@@ -57,6 +57,12 @@ namespace CRUSBL
             //ToList method will convert into List that our method currently needs to return.
             //ToLower will lowercase the string to make it not case sensitive
             return listOfCustomer.Where(rest => rest.Name.ToLower().Contains(p_name.ToLower())).ToList();
+        }
+
+        public Customer GetSingleCustomer(string p_name, string p_email)
+        {
+            List<Customer> listOfCustomers = _repo.GetAllCustomer();
+            return listOfCustomers.FirstOrDefault(cust => cust.Name == p_name && cust.Email == p_email);
         }
 
         public Order OrderPlacement(Customer p_customer, Order p_order)

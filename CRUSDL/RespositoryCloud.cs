@@ -6,18 +6,14 @@ using System.Linq;
 
 namespace CRUSDL
 {
-    public class RespositoryCloud : IRepository
-    {        
+    public class RepositoryCloud : IRepository
+    {
         private Entity.ClothesRUSdemoContext _context;
-        public RespositoryCloud(Entity.ClothesRUSdemoContext p_context)
+        public RepositoryCloud(Entity.ClothesRUSdemoContext p_context)
         {
             _context = p_context;
         }
 
-        public Clothing AddClothing(Clothing p_rest)
-        {
-            throw new System.NotImplementedException();
-        }
 
         public Model.Customer AddCustomer(Model.Customer p_customer)
         {
@@ -43,10 +39,19 @@ namespace CRUSDL
 
         public List<Customer> GetAllCustomer()
         {
-            throw new System.NotImplementedException();
+            return _context.Customers.Select(Customer =>
+            new Model.Customer()
+            {
+                 Name= Customer.Name,
+                 Address = Customer.Address,
+                 Email = Customer.EmailAddress,
+                 ID = Customer.PersonId
+            }
+             ).ToList();
+
         }
 
-        public List<LineItems> GetAllLineItems(string p_locations)
+        public List<LineItems> GetAllLineItems(int p_locations)
         {
             throw new System.NotImplementedException();
         }
@@ -78,106 +83,106 @@ namespace CRUSDL
     }
 }
 
-       /*public List<Model.Customer> GetAllCustomer()
-        {
-            //Method Syntax
-            return _context.Customers.Select(Customer => 
-                new Model.Customer()
-                {
-                    Name = Customer.Name,
-                    Email = Customer.EmailAddress,
-                    Address = Customer.Address,
-                    ID = Customer.PersonId
-                }
-            ).ToList();
+/*public List<Model.Customer> GetAllCustomer()
+ {
+     //Method Syntax
+     return _context.Customers.Select(Customer => 
+         new Model.Customer()
+         {
+             Name = Customer.Name,
+             Email = Customer.EmailAddress,
+             Address = Customer.Address,
+             ID = Customer.PersonId
+         }
+     ).ToList();
 
-        public List<Customer> GetAllCustomer()
-        {
-            throw new System.NotImplementedException();
-        }
+ public List<Customer> GetAllCustomer()
+ {
+     throw new System.NotImplementedException();
+ }
 
-        public List<LineItems> GetAllLineItems(string p_locations)
-        {
-            throw new System.NotImplementedException();
-        }
+ public List<LineItems> GetAllLineItems(string p_locations)
+ {
+     throw new System.NotImplementedException();
+ }
 
-        public List<Review> GetAllReview()
-        {
-            throw new System.NotImplementedException();
-        }
+ public List<Review> GetAllReview()
+ {
+     throw new System.NotImplementedException();
+ }
 
-        public List<StoreFront> GetAllStoreFront()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
-
-        public List<Model.Customer> GetAllCustomer()
-        {
-            //Method Syntax
-            return _context.Customers.Select(rest => 
-                new Model.Restaurant()
-                {
-                    Name = Customer.customerName,
-                    Email = Customer.customerEmail,
-                    Address = Customer.customerAddress,
-                    Id = Customer.customerId
-                }
-            ).ToList();
-
-
-            //Query Syntax
-            // var result = (from rest in _context.Restaurants
-            //             select rest);
-
-            // List<Model.Restaurant> listOfRest = new List<Model.Restaurant>();
-            // foreach (var rest in result)
-            // {
-            //     listOfRest.Add(new Model.Restaurant(){
-            //         Name = rest.RestName,
-            //         State = rest.RestState,
-            //         City = rest.RestCity,
-            //         Id = rest.RestId
-            //     });
-            // }
-
-            // return listOfRest;
-        }
-
-        /*public List<Model.Review> GetAllReview()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
+ public List<StoreFront> GetAllStoreFront()
+ {
+     throw new System.NotImplementedException();
+ }
 }
-        public Model.Customer AddCustomer(Model.Customer p_customer)
-        {
-            return _context.Customers.Select(Customer=>)
-        }
 
-        public List<Model.Clothing> GetAllClothing()
-        {
-            throw new System.NotImplementedException();
-        }
+ public List<Model.Customer> GetAllCustomer()
+ {
+     //Method Syntax
+     return _context.Customers.Select(rest => 
+         new Model.Restaurant()
+         {
+             Name = Customer.customerName,
+             Email = Customer.customerEmail,
+             Address = Customer.customerAddress,
+             Id = Customer.customerId
+         }
+     ).ToList();
 
-        public List<Model.Customer> GetAllCustomer()
-        {
-            throw new System.NotImplementedException();
-        }
 
-        public List<Model.LineItems> GetAllLineItems(string p_locations)
-        {
-            throw new System.NotImplementedException();
-        }
+     //Query Syntax
+     // var result = (from rest in _context.Restaurants
+     //             select rest);
 
-        public List<Model.Review> GetAllReview()
-        {
-            throw new System.NotImplementedException();
-        }
+     // List<Model.Restaurant> listOfRest = new List<Model.Restaurant>();
+     // foreach (var rest in result)
+     // {
+     //     listOfRest.Add(new Model.Restaurant(){
+     //         Name = rest.RestName,
+     //         State = rest.RestState,
+     //         City = rest.RestCity,
+     //         Id = rest.RestId
+     //     });
+     // }
 
-        public List<Model.StoreFront> GetAllStoreFront()
-        {
-            throw new System.NotImplementedException();
-        }
-    }
+     // return listOfRest;
+ }
+
+ /*public List<Model.Review> GetAllReview()
+ {
+     throw new System.NotImplementedException();
+ }
+}
+}
+ public Model.Customer AddCustomer(Model.Customer p_customer)
+ {
+     return _context.Customers.Select(Customer=>)
+ }
+
+ public List<Model.Clothing> GetAllClothing()
+ {
+     throw new System.NotImplementedException();
+ }
+
+ public List<Model.Customer> GetAllCustomer()
+ {
+     throw new System.NotImplementedException();
+ }
+
+ public List<Model.LineItems> GetAllLineItems(string p_locations)
+ {
+     throw new System.NotImplementedException();
+ }
+
+ public List<Model.Review> GetAllReview()
+ {
+     throw new System.NotImplementedException();
+ }
+
+ public List<Model.StoreFront> GetAllStoreFront()
+ {
+     throw new System.NotImplementedException();
+ }
+}
 }*/

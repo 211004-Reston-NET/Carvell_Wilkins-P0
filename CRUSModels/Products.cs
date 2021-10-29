@@ -4,6 +4,7 @@ namespace CRUSModels
 {
     public class Products
     {
+        public static object p_catagory;
         private string _name;
         private decimal _price;
         private string _brand;

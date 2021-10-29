@@ -17,6 +17,7 @@ namespace CRUSUI
         {
             Console.WriteLine("Welcome to the Main Menu!");
             Console.WriteLine("Where would you like to go?");
+            Console.WriteLine("[3] - Search for Customer");
             Console.WriteLine("[2] - Create a new User");
             Console.WriteLine("[1] - Go to Clothes R' US");
             Console.WriteLine("[0] - Exit");
@@ -28,7 +29,8 @@ namespace CRUSUI
             string userChoice = Console.ReadLine();
             switch (userChoice)
             {
-
+                case "3":
+                    return MenuType.CustomerSearch;
                 case "2":
                     return MenuType.AddCustomer;                    
                 case "1":

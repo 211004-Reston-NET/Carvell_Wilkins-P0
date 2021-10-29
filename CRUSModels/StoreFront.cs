@@ -10,7 +10,13 @@ namespace CRUSModels
         private string _address;
         private List<Products> _products;
         ///private List<Orders> _orders;
-
+        private int _storefrontid;
+        public int StoreFrontId
+        {
+            get { return _storefrontid; }
+            set { _storefrontid = value; }
+        }
+        
         //properties
         public string Name { 
             get

@@ -24,38 +24,39 @@ namespace CRUSUI
                 .UseSqlServer(configuration.GetConnectionString("Reference2DB"))
                 .Options;
 
-            switch (p_menu)
-            {
-                case MenuType.MainMenu:
-                    return new MainMenu();
-                case MenuType.AddCustomer:
-                    return new AddCustomer();
-                case MenuType.ShowCustomer:
-                    return new ShowCustomers(new CustomerBL(new RespositoryCloud(new ClothesRUSdemoContext(options))));
-                case MenuType.AddRestaurant:
-                    return new AddRestaurant(new RestaurantBL(new RespositoryCloud(new RRDatabaseContext(options))));
-                case MenuType.CurrentRestaurant:
-                    return new CurrentRestaurant(new RestaurantBL(new RespositoryCloud(new RRDatabaseContext(options))));
-                case MenuType.ReviewMenu:
-                    return new ReviewMenu(new RestaurantBL(new RespositoryCloud(new RRDatabaseContext(options))));
-                default:
-                    return null;
-                           MainMenu,
-        ClothesMenu,
-        ShowClothes,
-        
-        LineItem,
-        CurrentClothing,
-        StoreFront,
-        OrderPlacement,
-        ShowCustomer, 
-        CustomerSearch,
-        ViewPastOrders,
-        CategoryMenu, 
-        Inventory,
+              switch (p_menu)
+                {
+                    case MenuType.MainMenu:
+                        return new MainMenu();
+                        //If user choosed to go back to the MainMenu
+                        //page will start pointing to a MainMenu object instead
+                        
+                        
+                    case MenuType.ClothesMenu:
+                        return new ClothesMenu(); 
+                        //This will point the page reference variable to a new Restaurant Object
+                        //Since Restaurant Object has different implementation/function of the Menu Method
+                        //It will have different implementations/functions when the while loop goes back and
+                        //repeat itself
+                                               
 
+                    case MenuType.StoreFront:
+                        return new StoreFrontMenu(); 
+                        ///return new StoreFrontMenu(new CRUSBL.StoreFrontBL(new Repository()));                        
 
-            }
+                    case MenuType.LineItem:
+                        return new LineItemMenu(new LineItemBL(new Repository()));                        
+                   
+                    case MenuType.AddCustomer:
+                        return new AddCustomer(new CustomerBL(new RepositoryCloud(new ClothesRUSdemoContext(options)))); 
+
+                    case MenuType.CustomerSearch:
+                        return new SearchCustomers(new CustomerBL(new RepositoryCloud(new ClothesRUSdemoContext(options))));                                        
+                        
+                    default:
+                      return null;
+                        
+                }
         }
     }
 }

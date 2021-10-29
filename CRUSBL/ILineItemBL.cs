@@ -13,6 +13,6 @@ namespace CRUSBL
         /// </summary>
         /// <param name="p_locations"> This is the store location that will be searched</param>
         /// <returns>we will return a list of line items</returns>
-        List<LineItems> GetAllLineItems(string p_locations);
+        List<LineItems> GetAllLineItems(int p_locations);
     }
 }

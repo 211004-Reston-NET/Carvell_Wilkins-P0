@@ -8,12 +8,12 @@ namespace CRUSBL
 {
     public class LineItemBL : ILineItemBL
     {
-        private Repository _repo;
-        public LineItemBL(Repository p_repo)
+        private IRepository _repo;
+        public LineItemBL(IRepository p_repo)
         {
             _repo = p_repo;
         }
-        public List<LineItems> GetAllLineItems(string p_locations)
+        public List<LineItems> GetAllLineItems(int p_locations)
         {
             return _repo.GetAllLineItems(p_locations);
         }

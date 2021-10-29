@@ -16,7 +16,7 @@ namespace CRUSUI
         {
             Console.WriteLine($"Now viewing products from {SingletonStoreFront.storeFront.Name}");
             Console.WriteLine("===================================");
-            List<LineItems> lineItemList = _lineItemBL.GetAllLineItems(SingletonStoreFront.storeFront.Name);
+            List<LineItems> lineItemList = _lineItemBL.GetAllLineItems(SingletonStoreFront.storeFront.StoreFrontId);
 
             foreach (LineItems item in lineItemList)
             {

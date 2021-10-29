@@ -11,10 +11,11 @@ namespace CRUSUI
             //This is a boolean that has either a false or true value
             //I will use this to stop the while loop
             bool repeat = true;
+            IFactory factory = new MenuFactory();
 
 
             //This is example of polymorphism, abstraction, and inheritance all at the same time
-            IMenu page = new MainMenu();
+            IMenu page = factory.GetMenu(MenuType.MainMenu);
             
 
             //This is a while loop that will keep repeating until I changed the
@@ -32,46 +33,18 @@ namespace CRUSUI
 
                 //switch case will change the page variable to point to another object to change
                 //its MainMenu 
-                switch (currentPage)
-                {
-                    case MenuType.MainMenu:
-                        //If user choosed to go back to the MainMenu
-                        //page will start pointing to a MainMenu object instead
-                        page = new MainMenu();
-                        break;
-                    case MenuType.ClothesMenu:
-                        //This will point the page reference variable to a new Restaurant Object
-                        //Since Restaurant Object has different implementation/function of the Menu Method
-                        //It will have different implementations/functions when the while loop goes back and
-                        //repeat itself
-                        page = new ClothesMenu();
-                        break; 
-
-                    case MenuType.StoreFront:
-                       page = new StoreFrontMenu(); 
-                        ///page = new StoreFrontMenu(new CRUSBL.StoreFrontBL(new Repository()));
-                        break;
-
-                    case MenuType.LineItem:
-
-                        page = new LineItemMenu(new LineItemBL(new Repository()));
-                        break;
-                   
-                    case MenuType.AddCustomer:
-                        page = new AddCustomer(new CustomerBL(new Repository()));
-                        break;
-                    
-                    case MenuType.Exit:
-                        Console.WriteLine("You are now exiting the program!");
+               if (currentPage == MenuType.Exit)
+               {
+                   Console.WriteLine("You are now exiting the program!");
                         Console.WriteLine("Press Enter to continue");
                         Console.ReadLine();
                         repeat = false;
-                        break;
-                    default:
-                        Console.WriteLine("You forgot to add a menu in your enum/code");
-                        repeat = false;
-                        break;
-                }
+                
+               }
+               else
+               {
+                   page=factory.GetMenu(currentPage);
+               }
 
                 
             }

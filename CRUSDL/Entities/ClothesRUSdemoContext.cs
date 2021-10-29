@@ -28,9 +28,12 @@ namespace CRUSDL.Entities
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.PersonId)
+                    .HasName("Customer_PK");
 
                 entity.ToTable("Customer");
+
+                entity.Property(e => e.PersonId).HasColumnName("PersonID");
 
                 entity.Property(e => e.Address)
                     .HasMaxLength(255)
@@ -44,8 +47,6 @@ namespace CRUSDL.Entities
                 entity.Property(e => e.Name)
                     .HasMaxLength(255)
                     .IsUnicode(false);
-
-                entity.Property(e => e.PersonId).HasColumnName("PersonID");
             });
 
             modelBuilder.Entity<Order>(entity =>

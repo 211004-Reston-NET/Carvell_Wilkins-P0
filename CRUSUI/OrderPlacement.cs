@@ -103,7 +103,7 @@ namespace CRUSUI
                     return MenuType.OrderPlacement;
 
                 case "2":
-                    //--------- add Order to DB here.---------\\
+                    
                     SingletonCustomer.order.PersonId = SingletonCustomer.customer.ID;
                     _customerBL.OrderPlacement(SingletonCustomer.customer, SingletonCustomer.order);
                     Console.WriteLine("Order Placed");

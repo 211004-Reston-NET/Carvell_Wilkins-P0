@@ -12,10 +12,13 @@ namespace CRUSBL
         {
             _repo = p_repo;
         }
-        public List<Products> SearchByCategory(string p_category)
+        public List<Products> CategoryMenu(string p_category)
         {
             List<Products> products = _repo.GetAllProducts();
-            return products.Where(prod => prod.catagory.ToLower().Contains(p_category.ToLower())).ToList();
+            return products.Where(products =>
+            {
+                return products.Brand.ToLower().Contains(p_category.ToLower());
+            }).ToList();
         }
     }
 }

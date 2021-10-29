@@ -15,35 +15,32 @@ namespace CRUSUI
         }
         public void Menu()
         {
-            Console.WriteLine("Current List of Customers"+
-                            "\n-------------------------");
-            List<Customer> listOfCustomers = _customerBL.GetCustomerList();
+            Console.WriteLine("Current List of Customers");
+            Console.WriteLine("==========================");
+            List<Customer> listOfCustomers = _customerBL.GetAllCustomer();
             foreach (Customer customer in listOfCustomers)
             {
                 Console.WriteLine(customer);
-                Console.WriteLine("-------------------------");
+                Console.WriteLine("=====================");
             }
-            Console.WriteLine("\n   [0] - Go back");
+            Console.WriteLine("[0] - Go back");
         }
 
-        public MenuType UserChoice()
+        public MenuType YourChoice()
         {
-            string userChoice = Console.ReadLine();
-            switch (userChoice)
+            string YourChoice = Console.ReadLine();
+            switch (YourChoice)
             {
                 case "0":
                     return MenuType.MainMenu;
                 default:
-                    Console.WriteLine("Please input a valid response!"+
-                                    "\nPress Enter to continue");
+                    Console.WriteLine("Please input a valid response!");
+                     Console.WriteLine("Please press enter to continue");
                     Console.ReadLine();
                     return MenuType.MainMenu;
             }
         }
 
-        public MenuType YourChoice()
-        {
-            throw new NotImplementedException();
-        }
+       
     }
 }

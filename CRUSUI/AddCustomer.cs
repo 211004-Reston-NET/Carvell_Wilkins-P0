@@ -21,7 +21,7 @@ namespace CRUSUI
             Console.WriteLine("Email - " + _customer.Email);
             Console.WriteLine("Address - " + _customer.Address);
             Console.WriteLine("Adding a new Customer Store");
-            Console.WriteLine("[4] - Add Customer Store");
+            Console.WriteLine("[4] - Add Customer ");
             Console.WriteLine("[3] - Input value for Name");
             Console.WriteLine("[2] - Input value for Email");
             Console.WriteLine("[1] - Input value for Address");
@@ -40,8 +40,9 @@ namespace CRUSUI
                     {
                         _customerBL.AddCustomer(_customer);
                     }
-                    catch (System.Exception)
+                    catch (System.Exception exc)
                     {
+                        Console.WriteLine(exc.Message);
                         Console.WriteLine("You must input value to all fields above");
                         Console.WriteLine("Press Enter to continue");
                         Console.ReadLine();

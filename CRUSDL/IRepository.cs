@@ -5,13 +5,7 @@ namespace CRUSDL
 {
     public interface IRepository
     {
-        /// <summary>
-        /// It will add a restaurant in our database
-        /// </summary>
-        /// <param name="p_rest">This is the restaurant we will be adding to the database</param>
-        /// <returns>It will just return the restaurant we are adding</returns>
-        Clothing AddClothing(Clothing p_rest);
-
+        
 
         //this will return a list of storefronts
         //List<CRUSStoreFront> GetCRUSStoreFronts();
@@ -42,7 +36,7 @@ namespace CRUSDL
         /// </summary>
         /// <param name="p_locations"> This is the store location that will be searched</param>
         /// <returns>we will return a list of line items</returns>
-        List<LineItems> GetAllLineItems(string p_locations);
+        List<LineItems> GetAllLineItems(int p_locations);
           /// <summary>
         /// This is going to get all Store fronts.
         /// </summary>

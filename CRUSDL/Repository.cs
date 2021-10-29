@@ -107,19 +107,19 @@ namespace CRUSDL
             return JsonSerializer.Deserialize<List<Customer>>(_jsonString);
         }
 
-        public List<LineItems> GetAllLineItems(string p_locations)
+        public List<LineItems> GetAllLineItems(int p_locations)
         {
           switch (p_locations)
           {
-              case "Dallas TX":
+              case 1:
               _jsonString = File.ReadAllText(_filepath+"LineItemDallasTX.json");
               break;
               
-              case "San Diego CA":
+              case 2:
               _jsonString = File.ReadAllText(_filepath+"LineItemSanDiegoCA.json");
               break;
 
-              case "San Antonio TX":
+              case 3:
               _jsonString = File.ReadAllText(_filepath+"LineItemSanAntonioTX.json");
               break;
 
