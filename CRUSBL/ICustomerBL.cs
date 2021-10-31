@@ -13,10 +13,10 @@ namespace CRUSBL
         List<Customer> GetAllCustomer();
 
         /// <summary>
-        /// Adds a restaurant to the database
+        /// Adds a customer to the database
         /// </summary>
-        /// <param name="p_customer">This is the restaurant we are adding</param>
-        /// <returns>It returns the added restaurant</returns>
+        /// <param name="p_customer">This is the customer we are adding</param>
+        /// <returns>It returns the added customer</returns>
         Customer AddCustomer(Customer p_customer);
 
         /// <summary>

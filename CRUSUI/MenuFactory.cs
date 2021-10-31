@@ -41,17 +41,20 @@ namespace CRUSUI
                                                
 
                     case MenuType.StoreFront:
-                        return new StoreFrontMenu(); 
-                        ///return new StoreFrontMenu(new CRUSBL.StoreFrontBL(new Repository()));                        
+                        return new StoreFrontMenu(new StoreFrontBL(new RepositoryCloud(new ClothesRUSdemoContext(options)))); 
+                        ///return new StoreFrontMenu(new CRUSBL.StoreFrontBL(new Repository())); 
+                        /// changed the line up top to add the storefront demo context 10.30 4:30                       
 
                     case MenuType.LineItem:
-                        return new LineItemMenu(new LineItemBL(new Repository()));                        
+                        return new LineItemMenu(new LineItemBL(new RepositoryCloud(new ClothesRUSdemoContext(options))));                        
                    
                     case MenuType.AddCustomer:
                         return new AddCustomer(new CustomerBL(new RepositoryCloud(new ClothesRUSdemoContext(options)))); 
 
                     case MenuType.CustomerSearch:
-                        return new SearchCustomers(new CustomerBL(new RepositoryCloud(new ClothesRUSdemoContext(options))));                                        
+                        return new SearchCustomers(new CustomerBL(new RepositoryCloud(new ClothesRUSdemoContext(options)))); 
+                        
+                                                               
                         
                     default:
                       return null;

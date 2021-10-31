@@ -1,4 +1,5 @@
 using System;
+using System.Collections.Generic;
 using CRUSBL;
 using CRUSModels;
 
@@ -7,12 +8,14 @@ namespace CRUSUI
     public class StoreFrontMenu : IMenu
     {
        
-        // private IStoreFrontBL _StoreBL;
+         private IStoreFrontBL _StoreBL;
          
-        // public StoreFrontMenu(IStoreFrontBL p_StoreBL)
-        // {
-        //     _StoreBL = p_StoreBL;
-        // }
+         public StoreFrontMenu(IStoreFrontBL p_StoreBL)
+         {
+             _StoreBL = p_StoreBL;
+
+
+         }
 
         public void Menu()
         {
@@ -21,16 +24,33 @@ namespace CRUSUI
             Console.WriteLine("store near you");
             Console.WriteLine("======================");
             Console.WriteLine("======================");
+
+            Console.WriteLine("List of Stores");
+            List<StoreFront> listOfStoreFront = _StoreBL.GetAllStoreFront();
+               for (int i = 0; i < listOfStoreFront.Count; i++)
+            {
+              
+               //Console.WriteLine("Here are a list of our store Locations");
+               Console.WriteLine(listOfStoreFront[i].Name);  
+               
+               Console.WriteLine(listOfStoreFront[i].Location);
+
+               Console.WriteLine("===========================");
+               //Console.WriteLine("Please press Enter to continue");
+               //Console.ReadLine();
+               
+            }
+
             /*Console.WriteLine("[10] - New York, NY");
             Console.WriteLine("[9] - Los Angeles, CA");
             Console.WriteLine("[8] - Chicago, IL");
             Console.WriteLine("[7] - Houston, TX");
             Console.WriteLine("[6] - Phoenix, AZ");
             Console.WriteLine("[5] - Philadelphia, PA");*/
-            Console.WriteLine("[4] - San Antonio, TX");
-            Console.WriteLine("[3] - San Diego, CA");
-            Console.WriteLine("[2] - Dallas, TX");
-            Console.WriteLine("[0] - Go Back");
+             Console.WriteLine("[4] - San Antonio, TX");
+             Console.WriteLine("[3] - San Diego, CA");
+             Console.WriteLine("[2] - Dallas, TX");
+             Console.WriteLine("[0] - Go Back");
 
         }
 

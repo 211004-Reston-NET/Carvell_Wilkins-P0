@@ -6,11 +6,14 @@ namespace CRUSModels
 {
     public class Customer
     {
+        public int CustomerId ;
         private string _name;
         private string _email;
         private string _address;
         //private List<Orders> _orders = new List<Orders>();
         public int ID { get; set; }
+
+        
 
         public string Name
         {

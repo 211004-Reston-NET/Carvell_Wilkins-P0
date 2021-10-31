@@ -26,7 +26,7 @@ namespace CRUSUI
             {
                 Console.WriteLine("=========================");
                 Console.WriteLine("Brand:"+ product.Product.Brand);
-                Console.WriteLine("Name:"+ product.Product.Name);
+                Console.WriteLine("Name:"+ product.Product.Clothing_Type);
                 Console.WriteLine("Price:"+ product.Product.Price);
                 Console.WriteLine("Stock Quantity:"+ product.Quantity);
                                ;
@@ -41,9 +41,9 @@ namespace CRUSUI
             }
             foreach (LineItems items in SingletonCustomer.order.LineItems)
             {
-                Console.WriteLine($" Item:  {items.Product.Name} ");
+                Console.WriteLine($" Item:  {items.Product.Clothing_Type} ");
                 Console.WriteLine($" Price:  {items.Product.Price}");
-                Console.WriteLine($" Quantity:  {items.Product.Name}");
+                Console.WriteLine($" Quantity:  {items.Product.Clothing_Type}");
                 Console.WriteLine($" ================");
                                
             }
@@ -66,7 +66,7 @@ namespace CRUSUI
                 
                     foreach (LineItems product in listOfLineItems)
                     {
-                        if (_inputName == product.Product.Name.ToLower())
+                        if (_inputName == product.Product.Clothing_Type.ToLower())
                         {
                             Console.WriteLine($"   How many {_inputName} would you like?");
                             int _inputQuantity = int.Parse(Console.ReadLine().Trim());

@@ -22,7 +22,7 @@ namespace CRUSDL
                new Entity.Customer()
                {
                    Name = p_customer.Name,
-                   EmailAddress = p_customer.Email,
+                   Email = p_customer.Email,
                    Address = p_customer.Address
                }
             );
@@ -44,21 +44,52 @@ namespace CRUSDL
             {
                  Name= Customer.Name,
                  Address = Customer.Address,
-                 Email = Customer.EmailAddress,
-                 ID = Customer.PersonId
+                 Email = Customer.Email,
+                 ID = Customer.CustomerId
             }
              ).ToList();
 
         }
 
-        public List<LineItems> GetAllLineItems(int p_locations)
+        public List<LineItems> GetAllLineItems(int p_productId)
         {
-            throw new System.NotImplementedException();
+            
+             return _context.LineItems.Select(LineItems =>
+            new Model.LineItems()
+            {
+                 Description= LineItems.Description,
+                 ProductId = LineItems.ProductId, 
+                 Price= (int)LineItems.Price, 
+                 Quantity= LineItems.Quantity              
+                
+            }
+             ).ToList();
+        }
+
+        public List<LineItems> GetAllLineItems()
+        {
+             return _context.LineItems.Select(LineItems =>
+            new Model.LineItems()
+            {
+                 Description= LineItems.Description,
+                 ProductId = LineItems.ProductId, 
+                 Price= (int)LineItems.Price, 
+                 Quantity= LineItems.Quantity              
+                
+            }
+             ).ToList();
         }
 
         public List<Products> GetAllProducts()
         {
-            throw new System.NotImplementedException();
+             return _context.Products.Select(Products =>
+            new Model.Products()
+            {
+                 Brand= Products.Brand,
+                 Clothing_Type = Products.ClothingType,                 
+                
+            }
+             ).ToList();
         }
 
         public List<Review> GetAllReview()
@@ -66,10 +97,58 @@ namespace CRUSDL
             throw new System.NotImplementedException();
         }
 
-        public List<StoreFront> GetAllStoreFront()
+        // public List<StoreFront> GetAllStoreFront(Model.StoreFront p_storefront)
+        // {
+           
+        // // Query syntax
+
+        // var result = (from storefront in _context.StoreFronts
+        // where storefront.Location == p_storefront.Location
+        // select storefront);
+        //     //throw new System.NotImplementedException();
+
+        //     List<Model.StoreFront> listofStoreFront = new List<Model.StoreFront>();
+
+        //     foreach (Entity.StoreFront storefront in result)
+        //     {
+        //         listofStoreFront.Add(new Model.StoreFront()
+
+        //         {
+        //             Name = storefront.Name,
+        //             Location = storefront.Location
+        //         });
+        //     }
+        //     return listofStoreFront; ----- may need to change back
+
+         public List<Model.StoreFront> GetAllStoreFront()
+        {
+            //Method Syntax
+            return _context.StoreFronts.Select(Store => 
+                new Model.StoreFront()
+                {
+                    Location= Store.Location,
+                    Name = Store.Name,
+                   
+                }
+            ).ToList();
+
+        
+        }
+
+        // public List<StoreFront> GetAllStoreFront()
+        // {
+        //     throw new System.NotImplementedException();
+        // } may need to change back 10.30. 4.15
+
+        public List<StoreFront> GetAllStoreFrontbylocation(string location)
         {
             throw new System.NotImplementedException();
         }
+
+        /* public List<StoreFront> GetAllStoreFrontbylocation(string location)
+         {
+             Entity.StoreFront StorefrontToFind    - temp change
+         }*/
 
         public Products GetProductsByItemId(int p_ItemId)
         {
@@ -82,6 +161,8 @@ namespace CRUSDL
         }
     }
 }
+
+
 
 /*public List<Model.Customer> GetAllCustomer()
  {

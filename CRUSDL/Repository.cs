@@ -130,6 +130,11 @@ namespace CRUSDL
             return JsonSerializer.Deserialize<List<LineItems>>(_jsonString); 
         }
 
+        public List<LineItems> GetAllLineItems()
+        {
+            throw new NotImplementedException();
+        }
+
         public List<Products> GetAllProducts()
         {
             throw new NotImplementedException();
@@ -143,6 +148,16 @@ namespace CRUSDL
         }
 
         public List<StoreFront> GetAllStoreFront()
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<StoreFront> GetAllStoreFront(StoreFront p_storefront)
+        {
+            throw new NotImplementedException();
+        }
+
+        public List<StoreFront> GetAllStoreFrontbylocation(string location)
         {
             throw new NotImplementedException();
         }

@@ -54,7 +54,7 @@ namespace CRUSUI
                     if (tempCust != null)
                     {
                         SingletonCustomer.customer = tempCust;
-                        Console.WriteLine($" Hello {SingletonCustomer.customer.Name} Welcome!"); 
+                        Console.WriteLine($" Hello { SingletonCustomer.customer.Name } Welcome!"); 
                         Console.WriteLine (" Please press enter to continue");
                         
                         Console.ReadLine();

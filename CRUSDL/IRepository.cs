@@ -30,18 +30,24 @@ namespace CRUSDL
         /// <param name="p_customer">The Paramater is the customre that will be added</param>
         /// <returns>Will return the customer that gets added</returns>
         Customer AddCustomer(Customer p_customer);
+        List<StoreFront> GetAllStoreFront();
 
         /// <summary>
         /// This is going to get all the line items for a specific store location
         /// </summary>
         /// <param name="p_locations"> This is the store location that will be searched</param>
         /// <returns>we will return a list of line items</returns>
-        List<LineItems> GetAllLineItems(int p_locations);
+        
+        ///LineItems AddLineItem(LineItems p_prodcutId);
+        List<LineItems> GetAllLineItems(int p_productId);
+        List<LineItems> GetAllLineItems();
           /// <summary>
+          
         /// This is going to get all Store fronts.
         /// </summary>
         /// <returns>we will return a list of store fronts</returns>
-        List<StoreFront> GetAllStoreFront();
+          List<StoreFront> GetAllStoreFrontbylocation (string location);
+        /// changed this in order to include what is above List<StoreFront> GetAllStoreFront (StoreFront p_storefront);
 
         //this is going to get a list of products from the database
 

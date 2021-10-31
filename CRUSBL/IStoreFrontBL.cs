@@ -13,6 +13,8 @@ namespace CRUSBL
         /// <returns>It will return a list of StoreFront</returns>
         List<StoreFront> GetAllStoreFront();
 
+        
+
 
 
 

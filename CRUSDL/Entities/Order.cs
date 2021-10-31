@@ -8,9 +8,10 @@ namespace CRUSDL.Entities
     public partial class Order
     {
         public int? PersonId { get; set; }
-        public string LastName { get; set; }
-        public string FirstName { get; set; }
         public string Address { get; set; }
-        public string City { get; set; }
+        public int? OrderId { get; set; }
+        public string Name { get; set; }
+
+        public virtual Customer Person { get; set; }
     }
 }

@@ -18,7 +18,8 @@ namespace CRUSDL.Entities
         }
 
         public virtual DbSet<Customer> Customers { get; set; }
-        public virtual DbSet<Order> Orders { get; set; }
+        public virtual DbSet<LineItem> LineItems { get; set; }
+        public virtual DbSet<OrderPlacement> OrderPlacements { get; set; }
         public virtual DbSet<Product> Products { get; set; }
         public virtual DbSet<StoreFront> StoreFronts { get; set; }
 
@@ -28,48 +29,65 @@ namespace CRUSDL.Entities
 
             modelBuilder.Entity<Customer>(entity =>
             {
-                entity.HasKey(e => e.PersonId)
-                    .HasName("Customer_PK");
-
                 entity.ToTable("Customer");
 
-                entity.Property(e => e.PersonId).HasColumnName("PersonID");
+                entity.Property(e => e.CustomerId).HasColumnName("Customer_ID");
 
                 entity.Property(e => e.Address)
-                    .HasMaxLength(255)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.EmailAddress)
-                    .HasMaxLength(255)
-                    .IsUnicode(false)
-                    .HasColumnName("Email_Address");
+                entity.Property(e => e.Email)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
 
                 entity.Property(e => e.Name)
-                    .HasMaxLength(255)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
             });
 
-            modelBuilder.Entity<Order>(entity =>
+            modelBuilder.Entity<LineItem>(entity =>
             {
-                entity.HasNoKey();
+                entity.HasKey(e => e.ProductId)
+                    .HasName("PK__LineItem__9833FF92B126F269");
 
-                entity.Property(e => e.Address)
+                entity.Property(e => e.ProductId).HasColumnName("Product_id");
+
+                entity.Property(e => e.Description)
                     .HasMaxLength(255)
                     .IsUnicode(false);
 
-                entity.Property(e => e.City)
-                    .HasMaxLength(255)
+                entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.Product)
+                    .HasMaxLength(50)
+                    .IsUnicode(false);
+            });
+
+            modelBuilder.Entity<OrderPlacement>(entity =>
+            {
+                entity.ToTable("OrderPlacement");
+
+                entity.Property(e => e.OrderPlacementId)
+                    .ValueGeneratedOnAdd()
+                    .HasColumnName("OrderPlacement_ID");
+
+                entity.Property(e => e.Decription)
+                    .HasMaxLength(50)
                     .IsUnicode(false);
 
-                entity.Property(e => e.FirstName)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
+                entity.Property(e => e.ProductId).HasColumnName("Product_ID");
 
-                entity.Property(e => e.LastName)
-                    .HasMaxLength(255)
-                    .IsUnicode(false);
+                entity.Property(e => e.StoreFrontName)
+                    .HasMaxLength(50)
+                    .IsUnicode(false)
+                    .HasColumnName("StoreFront_Name");
 
-                entity.Property(e => e.PersonId).HasColumnName("PersonID");
+                entity.HasOne(d => d.OrderPlacementNavigation)
+                    .WithOne(p => p.OrderPlacement)
+                    .HasForeignKey<OrderPlacement>(d => d.OrderPlacementId)
+                    .OnDelete(DeleteBehavior.ClientSetNull)
+                    .HasConstraintName("FK__OrderPlac__Order__6FE99F9F");
             });
 
             modelBuilder.Entity<Product>(entity =>
@@ -86,13 +104,15 @@ namespace CRUSDL.Entities
                     .HasColumnName("Clothing_Type");
 
                 entity.Property(e => e.Price).HasColumnType("decimal(18, 0)");
+
+                entity.Property(e => e.ProductId).HasColumnName("Product_ID");
             });
 
             modelBuilder.Entity<StoreFront>(entity =>
             {
-                entity.HasNoKey();
-
                 entity.ToTable("StoreFront");
+
+                entity.Property(e => e.Id).HasColumnName("ID");
 
                 entity.Property(e => e.Location)
                     .HasMaxLength(50)

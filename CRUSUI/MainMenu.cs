@@ -17,7 +17,8 @@ namespace CRUSUI
         {
             Console.WriteLine("Welcome to the Main Menu!");
             Console.WriteLine("Where would you like to go?");
-            Console.WriteLine("[3] - Search for Customer");
+          //  Console.WriteLine("[4] - Search for customer" WIP) 
+            Console.WriteLine("[3] - Login information");
             Console.WriteLine("[2] - Create a new User");
             Console.WriteLine("[1] - Go to Clothes R' US");
             Console.WriteLine("[0] - Exit");

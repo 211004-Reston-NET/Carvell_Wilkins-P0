@@ -17,9 +17,9 @@ namespace CRUSUI
         public void Menu()
         {
 
-            Console.WriteLine("Name - " + _customer.Name);
-            Console.WriteLine("Email - " + _customer.Email);
-            Console.WriteLine("Address - " + _customer.Address);
+            Console.WriteLine(" Name - " + _customer.Name);
+            Console.WriteLine(" Email - " + _customer.Email);
+            Console.WriteLine(" Address - " + _customer.Address);
             Console.WriteLine("Adding a new Customer Store");
             Console.WriteLine("[4] - Add Customer ");
             Console.WriteLine("[3] - Input value for Name");
@@ -30,8 +30,8 @@ namespace CRUSUI
 
         public MenuType YourChoice()
         {
-            string userChoice = Console.ReadLine();
-            switch (userChoice)
+            string YourChoice = Console.ReadLine();
+            switch (YourChoice)
             {
                 case "4":
                     //Anything inside the try block will be catched if an exception has risen

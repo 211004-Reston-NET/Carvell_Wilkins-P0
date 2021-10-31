@@ -5,19 +5,19 @@ namespace CRUSModels
     public class Products
     {
         public static object p_catagory;
-        private string _name;
+        private string _clothing_type;
         private decimal _price;
         private string _brand;
         public int ItemId {get; set;}
 
-        public string Name {
+        public string Clothing_Type {
             get
             {
-                return _name;
+                return _clothing_type;
             }
             set
             {
-                _name = value;
+                _clothing_type = value;
             }
         }
         public decimal Price {
@@ -41,7 +41,7 @@ namespace CRUSModels
             }
         }
         public override string ToString(){
-            return $"Brand: {Brand} \nName: {Name} \nPrice: {Price}";
+            return $"Brand: {Brand} \nName: {Clothing_Type} \nPrice: {Price}";
         }
     }
 }
